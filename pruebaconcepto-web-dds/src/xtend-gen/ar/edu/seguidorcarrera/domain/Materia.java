@@ -1,10 +1,22 @@
 package ar.edu.seguidorcarrera.domain;
 
+import ar.edu.libros.exceptions.BusinessException;
 import ar.edu.seguidorcarrera.domain.UbicacionMateria;
 import com.google.common.base.Objects;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
 public class Materia {
+  private Long _id;
+  
+  public Long getId() {
+    return this._id;
+  }
+  
+  public void setId(final Long id) {
+    this._id = id;
+  }
+  
   private String _nombre;
   
   public String getNombre() {
@@ -59,13 +71,20 @@ public class Materia {
     return this.getNombre();
   }
   
-  public Object validar() {
-    Object _xifexpression = null;
+  public void validar() {
     String _nombre = this.getNombre();
     boolean _equals = Objects.equal(_nombre, null);
     if (_equals) {
-      _xifexpression = null;
+      throw new BusinessException("Nombre", "Debe ingresar una materia");
     }
-    return _xifexpression;
+  }
+  
+  public Materia copy() {
+    try {
+      Object _clone = super.clone();
+      return ((Materia) _clone);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
 }
