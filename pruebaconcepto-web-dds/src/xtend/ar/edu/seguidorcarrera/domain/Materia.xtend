@@ -34,6 +34,10 @@ class Materia implements Cloneable {
 	def Materia copy() {
 		super.clone as Materia
 	}
+	
+	def matchea(Materia materia) {
+		true
+	}
 
 	
 }

@@ -102,4 +102,8 @@ public class Materia implements Cloneable {
       throw Exceptions.sneakyThrow(_e);
     }
   }
+  
+  public boolean matchea(final Materia materia) {
+    return true;
+  }
 }

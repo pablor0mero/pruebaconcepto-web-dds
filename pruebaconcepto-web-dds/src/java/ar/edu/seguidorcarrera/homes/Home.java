@@ -13,4 +13,6 @@ public interface Home<T extends Object> {
   public abstract T get(final Long id);
   
   public abstract List<T> getByExample(final T elem);
+  
+  public abstract List<T> getAll();
 }

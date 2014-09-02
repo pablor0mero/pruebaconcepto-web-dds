@@ -43,24 +43,24 @@ class HomeMaterias implements Home<Materia> {
 	}
 	
 	def doActualizar(Materia materia) {
-		val unaMateria = this.get(materia.id).copy()
+		val unaMateria = this.get(materia.id).copy
 		unaMateria.actualizarCon(materia)
 	}
 	
 	override eliminar(Materia elem) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		materias.remove(this.get(elem.id))
 	}
 	
 	override get(Long id) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		materias.findFirst[materia|materia.id.equals(id)]
 	}
 	
 	override getByExample(Materia elem) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		materias.filter[materia|materia.matchea(elem)].toList.map [ it.copy ]
 	}
 	
 	override getAll() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		materias
 	}
 	
 }

@@ -24,4 +24,8 @@ class HomeUbicaciones implements Home<UbicacionMateria> {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
+	override getAll() {
+		
+	}
+	
 }

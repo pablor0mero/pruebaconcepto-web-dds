@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 @SuppressWarnings("all")
 public class HomeMaterias implements Home<Materia> {
@@ -68,21 +69,46 @@ public class HomeMaterias implements Home<Materia> {
     }
   }
   
-  public Object doActualizar(final Materia materia) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method copy is undefined for the type HomeMaterias"
-      + "\nactualizarCon cannot be resolved");
+  public void doActualizar(final Materia materia) {
+    Long _id = materia.getId();
+    Materia _get = this.get(_id);
+    final Materia unaMateria = _get.copy();
+    unaMateria.actualizarCon(materia);
   }
   
   public void eliminar(final Materia elem) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+    Long _id = elem.getId();
+    Materia _get = this.get(_id);
+    this.materias.remove(_get);
   }
   
   public Materia get(final Long id) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+    final Function1<Materia, Boolean> _function = new Function1<Materia, Boolean>() {
+      public Boolean apply(final Materia materia) {
+        Long _id = materia.getId();
+        return Boolean.valueOf(_id.equals(id));
+      }
+    };
+    return IterableExtensions.<Materia>findFirst(this.materias, _function);
   }
   
   public List<Materia> getByExample(final Materia elem) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+    final Function1<Materia, Boolean> _function = new Function1<Materia, Boolean>() {
+      public Boolean apply(final Materia materia) {
+        return Boolean.valueOf(materia.matchea(elem));
+      }
+    };
+    Iterable<Materia> _filter = IterableExtensions.<Materia>filter(this.materias, _function);
+    List<Materia> _list = IterableExtensions.<Materia>toList(_filter);
+    final Function1<Materia, Materia> _function_1 = new Function1<Materia, Materia>() {
+      public Materia apply(final Materia it) {
+        return it.copy();
+      }
+    };
+    return ListExtensions.<Materia, Materia>map(_list, _function_1);
+  }
+  
+  public List<Materia> getAll() {
+    return this.materias;
   }
 }
