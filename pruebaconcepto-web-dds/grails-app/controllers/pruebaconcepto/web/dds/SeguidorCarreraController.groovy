@@ -11,6 +11,11 @@ class SeguidorCarreraController {
 	static allowedMethods = [ ]
 
     def index() {
-		//redirect(action: "seguidorcarrera", params: params)
+		redirect(action: "seguidorCarrera", params: params)
+	}
+	
+	def seguidorCarrera() {
+		def materias = homeMaterias.getAll()
+		[materiasList: materias ]
 	}
 }

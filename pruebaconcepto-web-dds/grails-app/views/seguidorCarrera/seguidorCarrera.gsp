@@ -6,6 +6,31 @@
 	<title>Seguidor de Carrera</title>
 </head>
 <body>
-       <h1>CACA</h1>
+       <div style="width: 90%; padding: 15pt;">
+       		<div id="collapseTwo" class="panel-collapse collapse in">
+				<div class="panel-body">
+					<!--  <div id="list-materia" class="content scaffold-list"> -->
+					<div id="list-materia" class="col-md-6">
+						<table class="table table-striped table-bordered table-hover table-condensed">
+							<thead>
+								<g:sortableColumn property="nombre" title="Materia" />
+							</thead>
+							<tbody>
+								<g:each in="${materiasList}" var="materiaInstance">
+									<tr class="info">
+										<td><g:link action="show" id="${materiaInstance.id}"> 
+											${materiaInstance.nombre}
+											</g:link>
+										</td>
+									</tr>
+								</g:each>
+							</tbody>
+						</table>
+					</div>
+					<div class="col-md-6">
+					</div>
+				</div>
+			</div>	
+       </div>
 </body>
 </HTML>

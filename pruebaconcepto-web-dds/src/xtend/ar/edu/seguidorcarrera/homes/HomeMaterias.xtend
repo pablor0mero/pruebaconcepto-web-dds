@@ -59,4 +59,8 @@ class HomeMaterias implements Home<Materia> {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
+	override getAll() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
 }

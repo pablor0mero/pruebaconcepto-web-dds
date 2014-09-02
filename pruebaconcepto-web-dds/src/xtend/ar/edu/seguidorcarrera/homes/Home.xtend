@@ -8,5 +8,6 @@ interface Home<T> {
 	def void eliminar(T elem)
 	def T get(Long id)
 	def List<T> getByExample(T elem)
+	def List<T> getAll()
 	
 }
