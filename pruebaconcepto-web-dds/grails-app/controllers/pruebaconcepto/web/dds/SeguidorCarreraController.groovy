@@ -18,4 +18,8 @@ class SeguidorCarreraController {
 		def materias = homeMaterias.getAll()
 		[materiasList: materias ]
 	}
+	
+	def show() {
+		
+	}
 }

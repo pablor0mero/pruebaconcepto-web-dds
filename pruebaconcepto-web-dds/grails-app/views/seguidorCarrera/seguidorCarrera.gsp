@@ -22,6 +22,9 @@
 											${materiaInstance.nombre}
 											</g:link>
 										</td>
+										<td>
+											${materiaInstance.ubicacionMateria.toString }
+										</td>
 									</tr>
 								</g:each>
 							</tbody>
