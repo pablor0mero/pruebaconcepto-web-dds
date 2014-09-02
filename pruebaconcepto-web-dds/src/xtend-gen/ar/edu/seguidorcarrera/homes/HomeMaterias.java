@@ -58,7 +58,20 @@ public class HomeMaterias implements Home<Materia> {
   }
   
   public void actualizar(final Materia elem) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+    elem.validar();
+    Long _id = elem.getId();
+    boolean _equals = Objects.equal(_id, null);
+    if (_equals) {
+      this.agregar(elem);
+    } else {
+      this.doActualizar(elem);
+    }
+  }
+  
+  public Object doActualizar(final Materia materia) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method copy is undefined for the type HomeMaterias"
+      + "\nactualizarCon cannot be resolved");
   }
   
   public void eliminar(final Materia elem) {

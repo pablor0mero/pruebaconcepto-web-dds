@@ -1,8 +1,9 @@
 package ar.edu.seguidorcarrera.domain
 
-import ar.edu.libros.exceptions.BusinessException
+import ar.edu.seguidorcarrera.exceptions.BusinessException
 
-class Materia {
+class Materia implements Cloneable {
+	
 	@Property Long id
 	@Property String nombre
 	@Property Integer anioCursada
@@ -21,8 +22,18 @@ class Materia {
 		}
 	}
 	
+	def actualizarCon(Materia materia) {
+		this.id = materia.id
+		this.nombre = materia.nombre
+		this.anioCursada = materia.anioCursada
+		this.finalAprobado = materia.finalAprobado
+		this.profesor = materia.profesor
+		this.ubicacionMateria = materia.ubicacionMateria
+	}
+	
 	def Materia copy() {
 		super.clone as Materia
 	}
+
 	
 }

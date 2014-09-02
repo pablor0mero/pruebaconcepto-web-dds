@@ -1,12 +1,12 @@
 package ar.edu.seguidorcarrera.domain;
 
-import ar.edu.libros.exceptions.BusinessException;
 import ar.edu.seguidorcarrera.domain.UbicacionMateria;
+import ar.edu.seguidorcarrera.exceptions.BusinessException;
 import com.google.common.base.Objects;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
-public class Materia {
+public class Materia implements Cloneable {
   private Long _id;
   
   public Long getId() {
@@ -77,6 +77,21 @@ public class Materia {
     if (_equals) {
       throw new BusinessException("Nombre", "Debe ingresar una materia");
     }
+  }
+  
+  public void actualizarCon(final Materia materia) {
+    Long _id = materia.getId();
+    this.setId(_id);
+    String _nombre = materia.getNombre();
+    this.setNombre(_nombre);
+    Integer _anioCursada = materia.getAnioCursada();
+    this.setAnioCursada(_anioCursada);
+    Boolean _finalAprobado = materia.getFinalAprobado();
+    this.setFinalAprobado(_finalAprobado);
+    String _profesor = materia.getProfesor();
+    this.setProfesor(_profesor);
+    UbicacionMateria _ubicacionMateria = materia.getUbicacionMateria();
+    this.setUbicacionMateria(_ubicacionMateria);
   }
   
   public Materia copy() {

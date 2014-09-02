@@ -34,7 +34,17 @@ class HomeMaterias implements Home<Materia> {
 	}
 	
 	override actualizar(Materia elem) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		elem.validar
+				if (elem.id == null) {
+			this.agregar(elem)
+		} else {
+			this.doActualizar(elem)
+		}
+	}
+	
+	def doActualizar(Materia materia) {
+		val unaMateria = this.get(materia.id).copy()
+		unaMateria.actualizarCon(materia)
 	}
 	
 	override eliminar(Materia elem) {

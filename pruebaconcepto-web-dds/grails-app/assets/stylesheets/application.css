@@ -9,5 +9,7 @@
 *
 *= require main
 *= require mobile
+*= require bootstrap
+*= require_tree .
 *= require_self
 */
