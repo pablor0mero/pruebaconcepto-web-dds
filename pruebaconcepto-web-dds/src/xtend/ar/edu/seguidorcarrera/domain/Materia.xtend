@@ -1,4 +1,5 @@
 package ar.edu.seguidorcarrera.domain
+import java.util.ArrayList
 
 import ar.edu.seguidorcarrera.exceptions.BusinessException
 
@@ -10,6 +11,11 @@ class Materia implements Cloneable {
 	@Property Boolean finalAprobado 
 	@Property String profesor
 	@Property UbicacionMateria ubicacionMateria
+	@Property ArrayList<Notas> notas
+	
+	private new(){
+		notas =new ArrayList<Notas>
+	}
 	
 	
 	override toString() {
@@ -41,6 +47,7 @@ class Materia implements Cloneable {
 		this.finalAprobado = materia.finalAprobado
 		this.profesor = materia.profesor
 		this.ubicacionMateria = materia.ubicacionMateria
+		this.notas = materia.notas
 	}
 	
 	def Materia copy() {
