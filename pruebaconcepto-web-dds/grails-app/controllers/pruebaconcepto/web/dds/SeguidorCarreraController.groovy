@@ -60,7 +60,7 @@ class SeguidorCarreraController {
 		def id = params.id ? params.id as Long : null
 		if (id) {
 			materiaInstance = homeMaterias.get(id)
-			defaultMessage = "La materia se correctamente"
+			defaultMessage = "La materia se actualizo correctamente"
 		
 		}
 		try {
