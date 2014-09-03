@@ -6,6 +6,10 @@ class UbicacionMateria implements Cloneable{
 	@Property String cuandoSeDa
 	@Property Integer anioMateria
 	
+	new() {
+		
+	}
+	
 	
 	new(String cuando, Integer anio) {
 		cuandoSeDa = cuando

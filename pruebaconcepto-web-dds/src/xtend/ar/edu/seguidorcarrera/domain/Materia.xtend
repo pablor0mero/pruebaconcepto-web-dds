@@ -16,6 +16,10 @@ class Materia implements Cloneable {
 		nombre
 	}
 	
+	new() {
+		
+	}
+	
 	new(String n, Integer a, Boolean finl, String profe,UbicacionMateria ubi) {
 		this.nombre = n
 		this.anioCursada = a

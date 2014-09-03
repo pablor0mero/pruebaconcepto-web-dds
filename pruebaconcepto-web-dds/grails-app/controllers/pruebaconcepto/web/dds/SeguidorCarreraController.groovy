@@ -37,7 +37,8 @@ class SeguidorCarreraController {
 	}
 	
 	def nuevaMateria(){
-		//render(view: "nuevaMateria")
+		def ubicaciones = homeUbicaciones.getAll()
+		[ubicacionesList:ubicaciones]
 	}
 	
 	def agregarMateria(){

@@ -9,8 +9,15 @@
 <form class="form-horizontal" role="form">
  	<div class="form-group">
     	<label for="nombreMateria" class="col-sm-2 control-label">Nombre Materia</label>
-    	<div class="col-sm-10">
+    	<div class="col-md-6">
      		<input type="text" class="form-control" name="nombreMateria" id="nombreMateria" placeholder="Nombre aqui...">
+    	</div>
+    	<div class="col-md-6">
+    		<select class="form-control">
+				<g:each in="${ubicacionesList}" var="ubicacionInstance">
+  					<option>${ubicacionInstance.descripcion }</option>
+  				</g:each>
+  			</select>
     	</div>
   	</div>
   	<g:actionSubmit class="btn btn-primary btn-lg" action="agregarMateria" value="Aceptar"/>
