@@ -11,16 +11,17 @@
 	<title>Seguidor de Carrera</title>
 </head>
 <body>
-	<div style="height: 45px;" class="col-md-12">
-		<a>Seguidor de Carrera</a>
+	<div style="height: 45px;" class="text-center"">
+		<h1>Seguidor de Carrera</h1> 
 	</div>
-	<div id="leftPanel" class="col-md-6">
+	<%-- <div id="leftPanel" class="col-md-6"> --%>
 		<div id="list-materia" class="col-md-12">
 			<b>Materias</b>
 			<br/>
 			<table class="table table-striped table-bordered table-hover table-condensed">
 				<thead>
 					<g:sortableColumn property="nombre" title="Materia" />
+					<g:sortableColumn property="ubicacionMateria" title="Ubicacion"/>
 				</thead>
 				<tbody>
 					<g:each in="${materiasList}" var="materiaInstance">
@@ -29,7 +30,7 @@
 								<g:link action="show" id="${materiaInstance.id}" >${materiaInstance.nombre}</g:link>
 							</td>
 							<td class="col-md-4">
-								${materiaInstance.ubicacionMateria }
+								${materiaInstance.ubicacionMateria.descripcion }
 							</td>
 						</tr>
 					</g:each>
@@ -42,7 +43,7 @@
 				Nueva Materia
 			</g:link>
 		</div>
-	</div>
+	<%-- </div>
 	<div id="rightPanel" class="col-md-6">
 		<table id="materiaSeleccionada" >
 			<tr class="col-md-12">
@@ -90,6 +91,7 @@
 			</div>
 		</div>
 	</div>
+	--%>
 	
 	<%--
        <div style="width: 90%; padding: 15pt;">
@@ -135,6 +137,6 @@
 					</div>
 				</div>
 			</div>	
-       </div>--%>
+       </div>--%> 
 </body>
 </HTML>
