@@ -29,7 +29,7 @@ class HomeMaterias implements Home<Materia> {
 	}
 	
 	override agregar(Materia elem) {
-		elem.id = new Long(this.getUltimoIdUtilizado)
+		elem.id = new Long(this.getUltimoIdUtilizado.longValue + 1)
 		materias.add(elem)
 	}
 	

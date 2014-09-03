@@ -6,11 +6,12 @@ import ar.edu.seguidorcarrera.exceptions.BusinessException
 import ar.edu.seguidorcarrera.exceptions.SystemException
 import ar.edu.seguidorcarrera.homes.Home
 import ar.edu.seguidorcarrera.homes.HomeMaterias
+import ar.edu.seguidorcarrera.homes.HomeUbicaciones
 
 class SeguidorCarreraController {
 	
 	Home<Materia> homeMaterias = HomeMaterias.instance;
-	//Home<UbicacionMateria> homeUbicaciones = HomeUbicaciones.instance
+	Home<UbicacionMateria> homeUbicaciones = HomeUbicaciones.instance
 	
 	//static allowedMethods = [ ]
 
@@ -20,16 +21,17 @@ class SeguidorCarreraController {
 	
 	def seguidorCarrera() {
 		def materias = homeMaterias.getAll()
-		[materiasList: materias , materiaSeleccionada: new Materia()]
+		[materiasList: materias]
 	}
 	
 	def show(Long id) {
 		def materiaInstance = homeMaterias.get(id)
+		def ubicaciones = homeUbicaciones.getAll()
 		if (!materiaInstance) {
 				flash.message = "Materia " + id + " no encontrada"
 				redirect(action: "seguidorCarrera")
 		} else {
-				[materiaInstance: materiaInstance]
+				[materiaInstance: materiaInstance, ubicacionesList:ubicaciones]
 		}
 		
 	}
@@ -58,7 +60,7 @@ class SeguidorCarreraController {
 		def id = params.id ? params.id as Long : null
 		if (id) {
 			materiaInstance = homeMaterias.get(id)
-			defaultMessage = "La materia se correctamente"
+			defaultMessage = "La materia se actualizo correctamente"
 		
 		}
 		try {

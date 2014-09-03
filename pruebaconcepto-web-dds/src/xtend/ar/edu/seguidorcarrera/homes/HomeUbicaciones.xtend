@@ -7,7 +7,7 @@ import java.util.ArrayList
 
 class HomeUbicaciones implements Home<UbicacionMateria> {
 	
-	
+
 	List<UbicacionMateria> ubicaciones
 	//singleton
 	static HomeUbicaciones instance
@@ -23,13 +23,20 @@ class HomeUbicaciones implements Home<UbicacionMateria> {
 		instance
 	}
 	
+	def int getUltimoIdUtilizado() {
+		if (ubicaciones.isEmpty) {
+			return 1
+		}
+		return ubicaciones.sortBy [ -it.id ].toList.get(0).id.intValue
+	}
 	
 	override agregar(UbicacionMateria elem) {
+		elem.id = new Long(this.getUltimoIdUtilizado.longValue + 1)
 		ubicaciones.add(elem)
 	}
 	
 	override actualizar(UbicacionMateria elem) {
-		elem.validar
+		//elem.validar
 		if (elem.descripcion == null) {
 			this.agregar(elem)
 		} else {
@@ -51,36 +58,18 @@ class HomeUbicaciones implements Home<UbicacionMateria> {
 	}
 	
 	override getByExample(UbicacionMateria elem) {
-		ubicaciones.filter[materia|materia.matchea(elem)].toList.map [ it.copy ]
+		ubicaciones.filter[ubicacion|ubicacion.matchea(elem)].toList.map [ it.copy ]
 	}
 	
 	override getAll() {
 		ubicaciones
 	}
 	
-	
-/*	override agregar(UbicacionMateria elem) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	override actualizar(UbicacionMateria elem) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	override eliminar(UbicacionMateria elem) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
 	override get(Long id) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		ubicaciones.findFirst[UbicacionMateria materia|materia.id.equals(id)]
 	}
 	
-	override getByExample(UbicacionMateria elem) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
 	
-	override getAll() {
-		
-	}*/
+
 	
 }

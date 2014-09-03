@@ -22,6 +22,14 @@ class Materia implements Cloneable {
 		nombre
 	}
 	
+	new(String n, Integer a, Boolean finl, String profe,UbicacionMateria ubi) {
+		this.nombre = n
+		this.anioCursada = a
+		this.finalAprobado = finl
+		this.profesor = profe
+		this.ubicacionMateria = ubi
+	}
+	
 	def validar() {
 		if (nombre == null) {
 			throw new BusinessException("Nombre","Debe ingresar una materia")

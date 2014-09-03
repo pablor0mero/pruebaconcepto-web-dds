@@ -31,6 +31,15 @@
 					<label class="control-label" for="profesor">Profesor</label>
 					<input class="readOnly form-control" type="text" value="${materiaInstance?.profesor}" /> 
 				</div>
+				<div class="col-md-6">
+				<label class="control-label" for="ubicacionMateria">Ubicacion Materia</label>
+				<select class="form-control">
+					<g:each in="${ubicacionesList}" var="ubicacionInstance">
+  						<option selected="${materiaInstance.ubicacionMateria.matchea(ubicacionInstance) }">${ubicacionInstance.descripcion }</option>
+  					</g:each>
+
+				</select>
+				</div>
 			</div>
 			<div class="buttons">
 				<br>
