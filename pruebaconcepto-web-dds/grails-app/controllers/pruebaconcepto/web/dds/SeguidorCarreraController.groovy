@@ -58,8 +58,7 @@ class SeguidorCarreraController {
 	def nuevaNota(Long id){
 		def materia = homeMaterias.get(id)
 		def nota = new Notas(params.fecha,params.descripcion,(params.aprobado.equals("Si") ? true : false))
-//		materia.agregarNota(nota)
-//		redirect(action:"show", id:materia.id)
+	//	materia.agregarNota(nota)
 		redirect(action:"show", id:materia.id)		
 	}
 	

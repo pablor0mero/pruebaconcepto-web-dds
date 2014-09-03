@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="layout" content="main" />
-	<title>Editar Nota</title>
+	<title>Nueva Nota</title>
 </head>
 <body>
 <form class="form-horizontal" role="form">

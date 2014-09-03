@@ -18,19 +18,19 @@
 			<div class="row">
 				<div class="col-md-6">
 					<label class="control-label" for="nombre">Nombre Materia </label> 
-					<input class="readOnly form-control" type="text" value="${materiaInstance?.nombre}" />
+					<input class="readOnly form-control" name="nombre" type="text" value="${materiaInstance?.nombre}" />
 				</div>
 				<div class="col-md-6">
 					<label class="control-label" for="anioCursada">A&ntilde;o cursada </label>
-					<input class="readOnly form-control" type="text" value="${materiaInstance?.anioCursada}" />
+					<input class="readOnly form-control" name="anioCursada" type="text" value="${materiaInstance?.anioCursada}" />
 				</div>
 				<div class="col-md-6">
 					<br>	
-					<label> <input class="control-label" type="checkbox" checked="${materiaInstance?.finalAprobado}" > Final aprobado</label>
+					<label> <input class="control-label" name="finalAprobado" type="checkbox" checked="${materiaInstance?.finalAprobado}" > Final aprobado</label>
 				</div>
 				<div class="col-md-6">
 					<label class="control-label" for="profesor">Profesor</label>
-					<input class="readOnly form-control" type="text" value="${materiaInstance?.profesor}" /> 
+					<input class="readOnly form-control" name="profesor" type="text" value="${materiaInstance?.profesor}" /> 
 				</div>
 				<div class="col-md-6">
 				<label class="control-label" for="ubicacionMateria">Ubicacion Materia</label>
