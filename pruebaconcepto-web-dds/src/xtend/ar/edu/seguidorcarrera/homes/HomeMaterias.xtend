@@ -4,30 +4,28 @@ import java.util.List
 import ar.edu.seguidorcarrera.domain.Materia
 import java.util.ArrayList
 
-class HomeMaterias implements Home<Materia> {
-	
-	List<Materia> materias
-	//singleton
-	static HomeMaterias instance
-	
-	private new() {
-		materias = new ArrayList<Materia>
-	}
 
-	static def getInstance() {
-		if(instance == null) {
-			instance = new HomeMaterias()
+class HomeMaterias implements Home<Materia> {
+		List<Materia> materias
+		//singleton
+		static HomeMaterias instance
+		private new() {
+			materias = new ArrayList<Materia>
 		}
+		static def getInstance() {
+			if(instance == null) {
+				instance = new HomeMaterias()
+			}
 		instance
-	}
-	
+		}
 	def int getUltimoIdUtilizado() {
 		if (materias.isEmpty) {
 			return 1
 		}
-		return materias.sortBy [ -it.id ].toList.get(0).id.intValue
+			return materias.sortBy [ -it.id ].toList.get(0).id.intValue
 	}
 	
+
 	override agregar(Materia elem) {
 		elem.id = new Long(this.getUltimoIdUtilizado.longValue + 1)
 		materias.add(elem)
@@ -35,12 +33,13 @@ class HomeMaterias implements Home<Materia> {
 	
 	override actualizar(Materia elem) {
 		elem.validar
-				if (elem.id == null) {
+		if (elem.id == null) {
 			this.agregar(elem)
 		} else {
 			this.doActualizar(elem)
 		}
 	}
+	
 	
 	def doActualizar(Materia materia) {
 		val unaMateria = this.get(materia.id).copy
@@ -64,3 +63,4 @@ class HomeMaterias implements Home<Materia> {
 	}
 	
 }
+	

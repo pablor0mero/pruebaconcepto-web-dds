@@ -5,8 +5,8 @@ import ar.edu.seguidorcarrera.domain.UbicacionMateria
 import ar.edu.seguidorcarrera.exceptions.BusinessException
 import ar.edu.seguidorcarrera.exceptions.SystemException
 import ar.edu.seguidorcarrera.homes.Home
-import ar.edu.seguidorcarrera.homes.HomeMaterias
 import ar.edu.seguidorcarrera.homes.HomeUbicaciones
+import ar.edu.seguidorcarrera.homes.HomeMaterias
 
 class SeguidorCarreraController {
 	
