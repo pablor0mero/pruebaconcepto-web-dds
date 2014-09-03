@@ -6,6 +6,7 @@ import ar.edu.seguidorcarrera.exceptions.BusinessException
 import ar.edu.seguidorcarrera.exceptions.SystemException
 import ar.edu.seguidorcarrera.homes.Home
 import ar.edu.seguidorcarrera.homes.HomeMaterias
+import ar.edu.seguidorcarrera.homes.HomeUbicaciones
 
 class SeguidorCarreraController {
 	
@@ -20,7 +21,7 @@ class SeguidorCarreraController {
 	
 	def seguidorCarrera() {
 		def materias = homeMaterias.getAll()
-		[materiasList: materias , materiaSeleccionada: new Materia()]
+		[materiasList: materias]
 	}
 	
 	def show(Long id) {

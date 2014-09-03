@@ -23,8 +23,15 @@ class HomeUbicaciones implements Home<UbicacionMateria> {
 		instance
 	}
 	
+	def int getUltimoIdUtilizado() {
+		if (ubicaciones.isEmpty) {
+			return 1
+		}
+		return ubicaciones.sortBy [ -it.id ].toList.get(0).id.intValue
+	}
 	
 	override agregar(UbicacionMateria elem) {
+		elem.id = new Long(this.getUltimoIdUtilizado.longValue + 1)
 		ubicaciones.add(elem)
 	}
 	
@@ -59,7 +66,7 @@ class HomeUbicaciones implements Home<UbicacionMateria> {
 	}
 	
 	override get(Long id) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		ubicaciones.findFirst[UbicacionMateria materia|materia.id.equals(id)]
 	}
 	
 	

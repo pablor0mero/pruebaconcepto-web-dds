@@ -6,12 +6,17 @@ class UbicacionMateria implements Cloneable{
 	@Property String cuandoSeDa
 	@Property Integer anioMateria
 	
+	
+	new(String cuando, Integer anio) {
+		cuandoSeDa = cuando
+		anioMateria = anio
+	}
 			
 	def copy() {
 		this.clone as UbicacionMateria
 	}
 	
-	def String descripcion(){
+	def String getDescripcion(){
 		cuandoSeDa + "- Nivel: " + anioMateria
 	}
 	
