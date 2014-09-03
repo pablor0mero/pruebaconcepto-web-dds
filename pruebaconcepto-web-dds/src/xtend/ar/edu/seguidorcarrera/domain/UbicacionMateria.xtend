@@ -26,4 +26,8 @@ class UbicacionMateria implements Cloneable{
 	
 	
 	
+	override toString() {
+		"caca"
+	}
+	
 }
