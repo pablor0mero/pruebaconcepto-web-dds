@@ -2,13 +2,30 @@ package ar.edu.seguidorcarrera.domain
 
 class UbicacionMateria implements Cloneable{
 	
-	String descripcion = "descripcionSinSentido"
-		
-	def String getDescripcion(){
-		return this.descripcion
+	@Property Long id
+	@Property String cuandoSeDa
+	@Property Integer anioMateria
+	
+			
+	def copy() {
+		this.clone as UbicacionMateria
 	}
 	
-	def setDescripcion(String descripcion){
-		this.descripcion = descripcion	
+	def String descripcion(){
+		cuandoSeDa + "- Nivel: " + anioMateria
 	}
+	
+	def actualizarCon(UbicacionMateria ubicacion) {
+		this.id = ubicacion.id
+		this.cuandoSeDa = ubicacion.cuandoSeDa
+		this.anioMateria = ubicacion.anioMateria
+
+	}
+	
+	def Boolean matchea(UbicacionMateria ub) {
+		(cuandoSeDa.equals(ub.cuandoSeDa) || ub.cuandoSeDa == null) && (anioMateria == ub.anioMateria || ub.anioMateria==null)
+	}
+	
+
+	
 }

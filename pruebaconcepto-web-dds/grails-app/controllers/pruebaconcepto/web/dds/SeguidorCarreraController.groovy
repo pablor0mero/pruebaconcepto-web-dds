@@ -10,7 +10,7 @@ import ar.edu.seguidorcarrera.homes.HomeMaterias
 class SeguidorCarreraController {
 	
 	Home<Materia> homeMaterias = HomeMaterias.instance;
-	//Home<UbicacionMateria> homeUbicaciones = HomeUbicaciones.instance
+	Home<UbicacionMateria> homeUbicaciones = HomeUbicaciones.instance
 	
 	//static allowedMethods = [ ]
 
@@ -25,11 +25,12 @@ class SeguidorCarreraController {
 	
 	def show(Long id) {
 		def materiaInstance = homeMaterias.get(id)
+		def ubicaciones = homeUbicaciones.getAll()
 		if (!materiaInstance) {
 				flash.message = "Materia " + id + " no encontrada"
 				redirect(action: "seguidorCarrera")
 		} else {
-				[materiaInstance: materiaInstance]
+				[materiaInstance: materiaInstance, ubicacionesList:ubicaciones]
 		}
 		
 	}

@@ -7,7 +7,7 @@ import java.util.ArrayList
 
 class HomeUbicaciones implements Home<UbicacionMateria> {
 	
-	
+
 	List<UbicacionMateria> ubicaciones
 	//singleton
 	static HomeUbicaciones instance
@@ -29,7 +29,7 @@ class HomeUbicaciones implements Home<UbicacionMateria> {
 	}
 	
 	override actualizar(UbicacionMateria elem) {
-		elem.validar
+		//elem.validar
 		if (elem.descripcion == null) {
 			this.agregar(elem)
 		} else {
@@ -51,36 +51,18 @@ class HomeUbicaciones implements Home<UbicacionMateria> {
 	}
 	
 	override getByExample(UbicacionMateria elem) {
-		ubicaciones.filter[materia|materia.matchea(elem)].toList.map [ it.copy ]
+		ubicaciones.filter[ubicacion|ubicacion.matchea(elem)].toList.map [ it.copy ]
 	}
 	
 	override getAll() {
 		ubicaciones
 	}
 	
-	
-/*	override agregar(UbicacionMateria elem) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	override actualizar(UbicacionMateria elem) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	override eliminar(UbicacionMateria elem) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
 	override get(Long id) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
-	override getByExample(UbicacionMateria elem) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
 	
-	override getAll() {
-		
-	}*/
+
 	
 }
