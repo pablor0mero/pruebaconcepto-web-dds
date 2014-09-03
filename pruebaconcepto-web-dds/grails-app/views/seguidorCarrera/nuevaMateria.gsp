@@ -13,7 +13,7 @@
      		<input type="text" class="form-control" name="nombreMateria" id="nombreMateria" placeholder="Nombre aqui...">
     	</div>
   	</div>
-  	<g:actionSubmit class="btn btn-primary btn-lg" action="save" value="Aceptar"/>
+  	<g:actionSubmit class="btn btn-primary btn-lg" action="agregarMateria" value="Aceptar"/>
 	<g:link class="btn btn-default" action="index" value="Volver">Volver </g:link>
 </form>
 </body>

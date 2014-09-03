@@ -1,9 +1,14 @@
 package ar.edu.seguidorcarrera.domain
 
-class UbicacionMateria {
+class UbicacionMateria implements Cloneable{
 	
-	override toString() {
-		"caca"
+	String descripcion = "descripcionSinSentido"
+		
+	def String getDescripcion(){
+		return this.descripcion
 	}
 	
+	def setDescripcion(String descripcion){
+		this.descripcion = descripcion	
+	}
 }

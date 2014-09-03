@@ -1,6 +1,7 @@
 package pruebaconcepto.web.dds
 
 import ar.edu.seguidorcarrera.domain.Materia
+import ar.edu.seguidorcarrera.domain.UbicacionMateria
 import ar.edu.seguidorcarrera.homes.Home
 import ar.edu.seguidorcarrera.homes.HomeMaterias
 
@@ -17,7 +18,7 @@ class SeguidorCarreraController {
 	
 	def seguidorCarrera() {
 		def materias = homeMaterias.getAll()
-		[materiasList: materias ]
+		[materiasList: materias , materiaSeleccionada: new Materia()]
 	}
 	
 	def show(Long id) {
@@ -31,32 +32,21 @@ class SeguidorCarreraController {
 		
 	}
 	
-	/* HW
-	 * Metodo de prueba, va a ser eliminado*/
-	def myTest() {
-		[saludo : "Saludo de mierda"]
+	def nuevaMateria(){
+		//render(view: "nuevaMateria")
 	}
 	
-	def nuevaMateria(){
-		render(view: "nuevaMateria")
-		def materia = new Materia();
-		materia._nombre = params.nombreMateria
+	def agregarMateria(){
+		def materia = new Materia()
+		materia.setNombre(params.nombreMateria)
+		def ubicMat = new UbicacionMateria()
+		ubicMat.setDescripcion("nuevaDescripcion")
+		materia.setUbicacionMateria(ubicMat)
 		homeMaterias.agregar(materia)
-		List<Materia> materiasEnHome = new ArrayList<Materia>();
-		materiasEnHome.addAll(homeMaterias.getAll());
-		[materias: materiasEnHome]
+		redirect(action: "seguidorCarrera")
 	}
 	
 	def editarNota(){
 		
-	}
-	
-	/* HW
-	 * Metodo de prueba, va a ser eliminado*/
-	def private listarMateriasEnConsola(List<Materia> materias){
-		System.out0.println("Cantidad de materias: " + materias.size())
-		for (var in materias) {
-			System.out.println("	ID: " + var.getId() + ", materia: " + var.getNombre());
-		}
 	}
 }
