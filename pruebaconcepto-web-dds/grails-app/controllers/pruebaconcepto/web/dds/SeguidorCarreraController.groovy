@@ -47,6 +47,10 @@ class SeguidorCarreraController {
 		[materias: materiasEnHome]
 	}
 	
+	def editarNota(){
+		
+	}
+	
 	/* HW
 	 * Metodo de prueba, va a ser eliminado*/
 	def private listarMateriasEnConsola(List<Materia> materias){

@@ -31,9 +31,20 @@
 						</table>
 					</div>
 					<div class="col-md-6">
-								<g:link class="btn btn-primary btn-lg" action="nuevaMateria">
+							<g:link class="btn btn-primary btn-lg" action="nuevaMateria">
 								<span class="glyphicon glyphicon-plus"></span>
 								Nueva Materia
+							</g:link>
+					</div>
+					<div class="col-md-6">
+							<g:link class="btn btn-primary btn-lg" action="editarNota">
+								Editar Nota
+							</g:link>
+							<g:link class="btn btn-primary btn-lg" action="">
+								<span class="glyphicon glyphicon-plus"></span>
+							</g:link>
+							<g:link class="btn btn-primary btn-lg" action="">
+								<span class="glyphicon glyphicon-minus"></span>
 							</g:link>
 					</div>
 				</div>
