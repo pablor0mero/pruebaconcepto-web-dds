@@ -37,7 +37,8 @@ class SeguidorCarreraController {
 		[saludo : "Saludo de mierda"]
 	}
 	
-	def submitNuevaMateria(){
+	def nuevaMateria(){
+		render(view: "nuevaMateria")
 		def materia = new Materia();
 		materia._nombre = params.nombreMateria
 		homeMaterias.agregar(materia)

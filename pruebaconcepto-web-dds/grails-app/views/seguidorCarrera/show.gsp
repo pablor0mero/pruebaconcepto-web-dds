@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="layout" content="main"/>
-<title>Editar Materia</title>
+<title>Informacion Materia</title>
 </head>
 <body>
   <div class="body">
@@ -12,7 +12,6 @@
 				${flash.message}
 			</div>
 		</g:if>
-  
   </div>
 </body>
 </html>

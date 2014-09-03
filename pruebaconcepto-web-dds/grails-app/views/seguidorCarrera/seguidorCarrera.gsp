@@ -31,6 +31,7 @@
 						</table>
 					</div>
 					<div class="col-md-6">
+						<g:actionSubmit class="btn btn-primary btn-lg" action="submitNuevaMateria" value="Nueva Materia"/>
 					</div>
 				</div>
 			</div>	
