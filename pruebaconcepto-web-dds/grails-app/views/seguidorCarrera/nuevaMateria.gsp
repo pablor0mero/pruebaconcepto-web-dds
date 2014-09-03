@@ -13,9 +13,11 @@
      		<input type="text" class="form-control" name="nombreMateria" id="nombreMateria" placeholder="Nombre aqui...">
     	</div>
     	<div class="col-md-6">
-    		<select class="form-control">
+    		<select class="form-control" name="descripcionUbicacion" >
 				<g:each in="${ubicacionesList}" var="ubicacionInstance">
+					
   					<option>${ubicacionInstance.descripcion }</option>
+  					
   				</g:each>
   			</select>
     	</div>

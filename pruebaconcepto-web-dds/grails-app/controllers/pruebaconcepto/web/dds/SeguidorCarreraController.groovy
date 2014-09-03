@@ -1,12 +1,13 @@
 package pruebaconcepto.web.dds
 
 import ar.edu.seguidorcarrera.domain.Materia
+import ar.edu.seguidorcarrera.domain.Notas
 import ar.edu.seguidorcarrera.domain.UbicacionMateria
 import ar.edu.seguidorcarrera.exceptions.BusinessException
 import ar.edu.seguidorcarrera.exceptions.SystemException
 import ar.edu.seguidorcarrera.homes.Home
-import ar.edu.seguidorcarrera.homes.HomeUbicaciones
 import ar.edu.seguidorcarrera.homes.HomeMaterias
+import ar.edu.seguidorcarrera.homes.HomeUbicaciones
 
 class SeguidorCarreraController {
 	
@@ -27,12 +28,16 @@ class SeguidorCarreraController {
 	def show(Long id) {
 		def materiaInstance = homeMaterias.get(id)
 		def ubicaciones = homeUbicaciones.getAll()
+		def notas = materiaInstance.notas
 		if (!materiaInstance) {
 				flash.message = "Materia " + id + " no encontrada"
 				redirect(action: "seguidorCarrera")
 		} else {
-				[materiaInstance: materiaInstance, ubicacionesList:ubicaciones]
+				[materiaInstance: materiaInstance, ubicacionesList:ubicaciones, notasList:notas]
 		}
+		
+	}
+	def delete() {
 		
 	}
 	
@@ -44,17 +49,24 @@ class SeguidorCarreraController {
 	def agregarMateria(){
 		def materia = new Materia()
 		materia.setNombre(params.nombreMateria)
-		def ubicMat = new UbicacionMateria()
-		materia.setUbicacionMateria(ubicMat)
-		materia.profesor = "Granado Peralta"
+		materia.setUbicacionMateria(homeUbicaciones.get(params.descripcionUbicacion))
+//		materia.profesor = "Granado Peralta"
 		homeMaterias.agregar(materia)
 		redirect(action: "seguidorCarrera")
 	}
 	
-	def editarNota(){
-		
+	def nuevaNota(Long id){
+		def materia = homeMaterias.get(id)
+		def nota = new Notas(params.fecha,params.descripcion,(params.aprobado.equals("Si") ? true : false))
+//		materia.agregarNota(nota)
+//		redirect(action:"show", id:materia.id)
+		redirect(action:"show", id:materia.id)		
 	}
 	
+	
+	def eliminarNota() {
+		
+	}
 	def guardar() {
 		def materiaInstance = null
 		def defaultMessage = null

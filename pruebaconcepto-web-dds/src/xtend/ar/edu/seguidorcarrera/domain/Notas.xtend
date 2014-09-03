@@ -8,12 +8,18 @@ class Notas implements Cloneable{
 	@Property String fecha 
 	@Property String descripcion
 	@Property Boolean aprobado
-	@Property Integer valor
+	
 	
 	def agregarNota(Materia materia){
 		
 		materia.notas.add(this)
 		
+	}
+	
+	new(String g, String d, Boolean a) {
+		fecha = g
+		descripcion = d
+		aprobado = a
 	}
 	
 	def borrarNota(Materia materia){
@@ -28,8 +34,8 @@ class Notas implements Cloneable{
 	def actualizarNota(Notas nota){
 		this.fecha=nota.fecha
 		this.descripcion=nota.descripcion
-		this.aprobado=nota.aprobado
-		this.valor=nota.valor
+		//this.aprobado=nota.aprobado
+		
 	}
 	
 	

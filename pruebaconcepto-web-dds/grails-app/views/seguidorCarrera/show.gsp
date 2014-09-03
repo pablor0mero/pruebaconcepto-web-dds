@@ -13,7 +13,8 @@
 			</div>
 		</g:if>
   </div>
-		<g:form class="form-horizontal" method="post" >
+		<g:form class="form-horizontal" >
+		<input type="hidden" name="id" value="${materiaInstance?.id}"/>
 			<div class="row">
 				<div class="col-md-6">
 					<label class="control-label" for="nombre">Nombre Materia </label> 
@@ -41,9 +42,44 @@
 				</select>
 				</div>
 			</div>
+			
+			<div id="list-nota" class="col-md-6">
+			<b>Notas</b>
+			<br/>
+			<table class="table table-striped table-bordered table-hover table-condensed">
+				<thead>
+					<g:sortableColumn property="fecha" title="Fecha" />
+					<g:sortableColumn property="descripcion" title="Descripcion"/>
+					<g:sortableColumn property = "aprobado" title="Aprobado"/>
+				</thead>
+				<tbody>
+					<g:each in="${notasList}" var="notaInstance">
+						<tr class="info">
+							<td class="col-md-2">
+								<g:link action="show" name="${notaInstance.fecha}" >${notaInstance.fecha}</g:link>
+							</td>
+							<td class="col-md-4">
+								${notaInstance.descripcion }
+							</td>
+							<td class="col-md-2">
+								${notaInstance.aprobado ? "Si" : "No" }
+							</td>
+						</tr>
+					</g:each>
+				</tbody>
+			</table>
 			<div class="buttons">
+			<g:link class= "btn btn-primary" action="nuevaNota" id="${materiaInstance.id }" >
+				Agregar Nota
+				</g:link>
+				<g:link class="btn btn-primary" action="eliminarNota"> Eliminar Nota
+				</g:link>
+			</div>
+		</div>
+			
+			<div class="buttons" >
 				<br>
-				<g:hiddenField name="id" value="${materiaInstance?.id}" />
+				
 				<g:actionSubmit class="btn btn-primary" value="Efectuar Cambios" action="guardar"/>
 				<!--  se pueden poner botones con íconos como éste
 				<button class="btn btn-primary" name="_action_edit" value="Editar">
@@ -55,6 +91,7 @@
 					Cancelar
 				</g:link>
 			</div>
+			
 		</g:form>
 </body>
 </html>

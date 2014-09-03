@@ -22,6 +22,11 @@ class Materia implements Cloneable {
 		nombre
 	}
 	
+	def agregarNota(Notas nota) {
+		notas.add(nota)
+	
+	}
+	
 
 	new(String n, Integer a, Boolean finl, String profe,UbicacionMateria ubi) {
 		this.nombre = n
