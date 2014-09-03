@@ -1,33 +1,14 @@
 package ar.edu.seguidorcarrera.domain
 
-import ar.edu.seguidorcarrera.exceptions.BusinessException
-
 class UbicacionMateria implements Cloneable{
 	
-	@Property String descripcion
-	
-	def validar(){
-		if(this.descripcion==null){
-			throw new BusinessException("Ubicacion","Debe ingresar una ubicacion")
-		}
-	}
-	
-	def UbicacionMateria copy() {
-		super.clone as UbicacionMateria
-	}
-	
-	def actualizarCon(UbicacionMateria ubicacion) {
-		this.descripcion = ubicacion.descripcion
+	String descripcion = "descripcionSinSentido"
 		
-	}
-	def matchea(UbicacionMateria ubicacion) {
-		true
-	}
-	
-	
-	
-	override toString() {
-		"caca"
+	def String getDescripcion(){
+		return this.descripcion
 	}
 	
+	def setDescripcion(String descripcion){
+		this.descripcion = descripcion	
+	}
 }

@@ -12,14 +12,12 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 @SuppressWarnings("all")
 public class HomeMaterias implements Home<Materia> {
   private List<Materia> materias;
-  private int idElementoProximo;
   
   private static HomeMaterias instance;
   
   private HomeMaterias() {
     ArrayList<Materia> _arrayList = new ArrayList<Materia>();
     this.materias = _arrayList;
-    idElementoProximo = 0;
   }
   
   public static HomeMaterias getInstance() {
@@ -40,7 +38,7 @@ public class HomeMaterias implements Home<Materia> {
     if (_isEmpty) {
       return 1;
     }
-    final Function1<Materia, Long> _function = new Function1<Materia, Long>() {
+    final Function1<Materia,Long> _function = new Function1<Materia,Long>() {
       public Long apply(final Materia it) {
         Long _id = it.getId();
         return Long.valueOf((-(_id).longValue()));
@@ -54,11 +52,9 @@ public class HomeMaterias implements Home<Materia> {
   }
   
   public void agregar(final Materia elem) {
-//    int _ultimoIdUtilizado = this.getUltimoIdUtilizado();
-//    Long _long = new Long(_ultimoIdUtilizado);
-//    elem.setId(_long);
-	elem.setId(Long.valueOf(idElementoProximo + 1));
-	idElementoProximo = idElementoProximo + 1;
+    int _ultimoIdUtilizado = this.getUltimoIdUtilizado();
+    Long _long = new Long(_ultimoIdUtilizado);
+    elem.setId(_long);
     this.materias.add(elem);
   }
   
@@ -87,7 +83,7 @@ public class HomeMaterias implements Home<Materia> {
   }
   
   public Materia get(final Long id) {
-    final Function1<Materia, Boolean> _function = new Function1<Materia, Boolean>() {
+    final Function1<Materia,Boolean> _function = new Function1<Materia,Boolean>() {
       public Boolean apply(final Materia materia) {
         Long _id = materia.getId();
         return Boolean.valueOf(_id.equals(id));
@@ -97,14 +93,14 @@ public class HomeMaterias implements Home<Materia> {
   }
   
   public List<Materia> getByExample(final Materia elem) {
-    final Function1<Materia, Boolean> _function = new Function1<Materia, Boolean>() {
+    final Function1<Materia,Boolean> _function = new Function1<Materia,Boolean>() {
       public Boolean apply(final Materia materia) {
         return Boolean.valueOf(materia.matchea(elem));
       }
     };
     Iterable<Materia> _filter = IterableExtensions.<Materia>filter(this.materias, _function);
     List<Materia> _list = IterableExtensions.<Materia>toList(_filter);
-    final Function1<Materia, Materia> _function_1 = new Function1<Materia, Materia>() {
+    final Function1<Materia,Materia> _function_1 = new Function1<Materia,Materia>() {
       public Materia apply(final Materia it) {
         return it.copy();
       }
