@@ -12,12 +12,14 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 @SuppressWarnings("all")
 public class HomeMaterias implements Home<Materia> {
   private List<Materia> materias;
+  private int idElementoProximo;
   
   private static HomeMaterias instance;
   
   private HomeMaterias() {
     ArrayList<Materia> _arrayList = new ArrayList<Materia>();
     this.materias = _arrayList;
+    idElementoProximo = 0;
   }
   
   public static HomeMaterias getInstance() {
@@ -52,9 +54,11 @@ public class HomeMaterias implements Home<Materia> {
   }
   
   public void agregar(final Materia elem) {
-    int _ultimoIdUtilizado = this.getUltimoIdUtilizado();
-    Long _long = new Long(_ultimoIdUtilizado);
-    elem.setId(_long);
+//    int _ultimoIdUtilizado = this.getUltimoIdUtilizado();
+//    Long _long = new Long(_ultimoIdUtilizado);
+//    elem.setId(_long);
+	elem.setId(Long.valueOf(idElementoProximo + 1));
+	idElementoProximo = idElementoProximo + 1;
     this.materias.add(elem);
   }
   

@@ -6,7 +6,7 @@ import ar.edu.seguidorcarrera.homes.HomeMaterias
 
 class SeguidorCarreraController {
 	
-	Home<Materia> homeMaterias = HomeMaterias.instance 
+	Home<Materia> homeMaterias = HomeMaterias.instance;
 	//Home<UbicacionMateria> homeUbicaciones = HomeUbicaciones.instance
 	
 	//static allowedMethods = [ ]
@@ -29,5 +29,29 @@ class SeguidorCarreraController {
 				[materia: materia]
 		}
 		
+	}
+	
+	/* HW
+	 * Metodo de prueba, va a ser eliminado*/
+	def myTest() {
+		[saludo : "Saludo de mierda"]
+	}
+	
+	def submitNuevaMateria(){
+		def materia = new Materia();
+		materia._nombre = params.nombreMateria
+		homeMaterias.agregar(materia)
+		List<Materia> materiasEnHome = new ArrayList<Materia>();
+		materiasEnHome.addAll(homeMaterias.getAll());
+		[materias: materiasEnHome]
+	}
+	
+	/* HW
+	 * Metodo de prueba, va a ser eliminado*/
+	def private listarMateriasEnConsola(List<Materia> materias){
+		System.out0.println("Cantidad de materias: " + materias.size())
+		for (var in materias) {
+			System.out.println("	ID: " + var.getId() + ", materia: " + var.getNombre());
+		}
 	}
 }
