@@ -29,7 +29,7 @@
 								<g:link action="show" id="${materiaInstance.id}" >${materiaInstance.nombre}</g:link>
 							</td>
 							<td class="col-md-4">
-								${materiaInstance.ubicacionMateria.descripcion }
+								${materiaInstance.ubicacionMateria }
 							</td>
 						</tr>
 					</g:each>

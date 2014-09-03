@@ -40,7 +40,6 @@ class SeguidorCarreraController {
 		def materia = new Materia()
 		materia.setNombre(params.nombreMateria)
 		def ubicMat = new UbicacionMateria()
-		ubicMat.setDescripcion("nuevaDescripcion")
 		materia.setUbicacionMateria(ubicMat)
 		homeMaterias.agregar(materia)
 		redirect(action: "seguidorCarrera")
