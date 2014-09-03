@@ -14,7 +14,7 @@
     	</div>
   	</div>
   	<g:actionSubmit class="btn btn-primary btn-lg" action="save" value="Aceptar"/>
-	<g:actionSubmit controller="seguidorCarrera" action="myTest" value="Volver"/>
+	<g:link class="btn btn-default" action="index" value="Volver">Volver </g:link>
 </form>
 </body>
 </html>
